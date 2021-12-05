@@ -19,7 +19,6 @@ class MortgageViewSet(views.APIView):
     # Дифференцированный метод
     @staticmethod
     def get_differentiated_mortgage(sum, period, rate):
-
         remain_summa = sum
         month_rate = rate / 12
         main_debt = +(sum / period)

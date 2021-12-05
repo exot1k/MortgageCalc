@@ -40,10 +40,14 @@ class MortgageViewSet(views.APIView):
     # get метод
     def get(self, request, *args, **kwargs):
         # Получение параметров body
-        sum = int(self.request.data['sum'])
-        period = int(self.request.data['period'])
-        rate = float(self.request.data['rate'])
-        is_diff = strtobool(self.request.data['is_diff'])
+        # sum = int(self.request.data['sum'])
+        # period = int(self.request.data['period'])
+        # rate = float(self.request.data['rate'])
+        # is_diff = strtobool(self.request.data['is_diff'])
+        sum = int(self.request.GET['sum'])
+        period = int(self.request.GET['period'])
+        rate = float(self.request.GET['rate'])
+        is_diff = strtobool(self.request.GET['is_diff'])
         # Вызов метода в зависимости от типа рассчета
         if is_diff:
             return self.get_differentiated_mortgage(sum, period, rate)
